@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Evolution</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+            rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script type="module" src="index.js" defer></script>
+
+    <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--spacing-->
+    <br><br><br><br><br><br><br>
+
+    <!--interactive stellar evolution-->
+    <div class="container d-flex" id="stellar-evolution-path">
+        <!--step 3-->
+        <!--main sequence-->
+        <div id="step-3" class="d-flex">
+            <!--intro-->
+            <div id="introduction-sequence">
+                <!--Congratulations! You have a newborn baby star!-->
+                <!--The protostar has now entered the main sequence stage, which really can be thought of as its lifetime.-->
+                <!--Most stars in the universe are main sequence stars.-->
+                <!--Stars remain in this stage through hydrostatic equilibrium. To prevent itself from collapsing under its gravitational
+                    pull, stars use nuclear fusion reactions, which releases enormous amounts of energy, to create a counterbalancing
+                    pressure that pushes back against gravity.-->
+            </div>
+        
+            <!--main sequence -->
+            <div id="main-sequence">
+                <!--image-->
+                <img class="img-fluid" src="images/stars/cosmic_nebula.png">
+
+                <!--caption-->
+                <p>We know that main sequence stars use nuclear fusion to create pressure. Nuclear fusion is the process in which an atom's
+                        nucleus collides with another with enough force that the nuclei merge. This means the number of protons, which define the atom's elemental
+                        identity, changes. For most of a star's life, this is hydrogen fusing into helium. However, since there is a finite amount of hydrogen, the star core
+                        is now mostly helium, and it begins to contract on itself, creating heat, which allows for the surrounding layer to undergo fusion. This shell fusion releases a much
+                        larger amount of energy, greatly overpowering the gravitational force, causing the star to expand.
+                </p>
+
+                <!--random mass generator button-->
+                <button type="button">CLICK ME</button>
+                <p id="STAR MASS: "></p>
+            </div>
+        </div>
+
+   
+    <!--spacing-->
+    <br><br><br><br><br><br><br>
+
+        <!--footer-->
+    <footer class="p-5 footer text-light text-center">
+        <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
+            <h1 class="lead m-0 text-center" style="font-family: sans-serif, Helvetica;">
+                New Jersey State Museum
+            </h1>
+            <a href="#" class="mt-2">
+                <img src="images/logos/njsm_logo.png">
+            </a>
+        </div>
+    </footer>
+
+
+</body>
+</html>
