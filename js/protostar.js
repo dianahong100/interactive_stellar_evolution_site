@@ -1,7 +1,21 @@
+// ---------------------protostar-----------------------------
+const slider = document.getElementById("protostar-temperature")
+
+slider.addEventListener('input', function(event) 
+    {
+        var temperature = event.target.value
+        console.log(temperature)
+        if (temperature == 10) {
+            window.location.href = "main_sequence.html"
+        }
+    }
+)
+
+
 // ---------------------index-----------------------------
 document.getElementById("compress-nebula-button").onclick = async function () {
     console.log("clidked")
-    shrink()
+    expand()
     setTimeout(() => {
         console.log("new tab")
         window.location.href ='protostar.html'
@@ -9,7 +23,7 @@ document.getElementById("compress-nebula-button").onclick = async function () {
 }
 
 
-function shrink() {
+function expand() {
     const img = document.getElementById('nebula-image')
     let scale = 1.0
 
