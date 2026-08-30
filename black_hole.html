@@ -14,39 +14,69 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+     <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Being as they are a result of high mass stars, black holes are the densest object in the universe.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">Hence, they are regions of space whose gravitational fields are so great, not even light can escape.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">Anything trapped inside gets stretched and squeezed, pulled apart and destroyed.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 4-->
-        <!--red giant-->
-        <div id="step-4">
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/black_hole.png">
 
+            <!--caption-->
+            <p>That glowing ring spiraling around the compact object is the accretion disk, made up of gas and debris.
+                A little further past the accretion disk lies the event horizion, the boundary beyond which no object can ever return.
+                The singularity, that black region, is where matter gets crushed into zero volume, a point of infinite density. The physics that dictate
+                the universe fall apart here.
+            </p>
+
+            <!--temperature slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <button id="action-button" type="button">The End</button>
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
         </div>
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
-        <!--footer-->
+    </div>
+    
+            <!--footer-->
     <footer class="p-5 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
             <h1 class="lead m-0 text-center" style="font-family: sans-serif, Helvetica;">
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
 
+
+
+    
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 2000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            window.location.href ='end.html'
+        }
+    </script>
 
 </body>
 </html>

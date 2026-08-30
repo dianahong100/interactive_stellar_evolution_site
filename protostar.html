@@ -14,50 +14,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="js/protostar.js" defer></script>
-
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Protostars are formed from compressing nebulae.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">This stage is comparable to the gestation period.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">Protostars slowly put themselves together on their journey to becoming a star.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        
-        <!--step 2-->
-        <!--protostar-->
-        <div id="step-2" class="d-flex">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--A forming star-->
-                <!--Protostars are formed from compressing nebulae.-->
-                <!--This stage is comparable to the gestation period.-->
-                <!--Protostars slowly put themselves together on their journey to becoming a true star.-->
-            </div>
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/protostar.png">
+            <!--caption-->
+            <p>Due to their gravitational fields, protostars gather the cosmic material from the nebula. As they 
+                    slowly gain mass, which increases their gravitational pull, they generate heat, and nuclear fusion reactions begin to occur
+                    in a process known as ignition.
+            </p>
 
-            <!--nebula -->
-            <div id="nebula">
-                <!--image-->
-
-                <!--caption-->
-                <p>Due to their gravitational fields, protostars gather the cosmic material from the nebula. As they do,
-                        they slowly gain mass, which increases their <abbr title="According to Newton's second law of motion, force is equal to mass times acceleration. Hence, as mass increases, the gravitational force increases.">gravitational pull</abbr>.
-                        In doing so, <abbr title="This greater gravitational force means that kinetic energy is greater, which in turn leads to greater heat production.">heat</abbr> is generated;
-                        as the core heats up, nuclear fusion reactions begin to occur in a process known as ignition.
-                </p>
-
-                <!--temperature slider-->
-                <!--if slide to 10, move to main sequence page-->
-                <input type="range" id="protostar-temperature" name="TEMPERATURE" min="1" max="10" step="1" value="1">
-            </div>
+            <!--temperature slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <strong id="temp-display-box">
+                <p id="temperature-display" style="font-family: fantasy; letter-spacing: 3px; font-size: 120%; justify-self: center;">Adjust temperature</p>
+            </strong>
+            <input type="range" id="action-slider" name="TEMPERATURE" min="1" max="10" step="1" value="1">
         </div>
     </div>
-
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
 
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
@@ -66,11 +54,36 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
 
+    <script>
+        // ---------------------protostar----------------------------//
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 1000)
+            })
+
+        const slider = document.getElementById("action-slider")
+        const temp_display = document.getElementById("temperature-display")
+
+        slider.addEventListener('input', function(event) 
+            {
+                var temperature = event.target.value
+                temp_display.innerHTML = ``
+                temp_display.innerHTML = `${temperature} million Kelvin`
+                console.log(temperature)
+                if (temperature == 10) {
+                    window.location.href = "main_sequence.html"
+                }
+            }
+        )
+    </script>
 
 </body>
 </html>

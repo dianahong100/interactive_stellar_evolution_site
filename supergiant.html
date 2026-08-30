@@ -14,49 +14,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+<body >
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">The star is now nearing the end of the main sequence stage.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">Since it was a massive star, it became a supergiant.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">Thanks to its massive size, it will exhaust its fuel quickly.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 4-->
-        <!--red giant-->
-        <div id="step-4">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--The star is now nearing the end of the main sequence stage.-->
-                <!--Since it was a massive star, it became a supergiant.-->
-                <!--Thanks to its massive size, it will exhaust its fuel quickly..-->
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <div id="image-box">
+                <img class="img-fluid" id='info-img' src="images/stars/red_orange_supergiant.png">
             </div>
 
-            <!--red giant -->
-            <div id="red-giant">
-                <!--image-->
+            <!--caption-->
+            <p>The supergiant is born red, cooler and larger. As core temperatures rise and further fusion occurs, it turns blue, becoming
+                more compact and burning hotter. The supergiant can oscillate between red and blue, but eventually, as it runs out of fuel,
+                it approaches an explosive demise.
+            </p>
 
-                <!--caption-->
-                <p>The supergiant is born red, cooler and larger. As core temperatures rise and further fusion occurs, it turns blue, becoming
-                    more compact and burning hotter. The supergiant can oscillate between red and blue, but eventually, as it runs out of fuel,
-                    it approaches an explosive demise.
-                </p>
-
-                <!--temperature slider-->
-                <!--if slide to 10, move to main sequence page-->
-                <button type="button" id="blow-away" name="BLOW" min="1" max="10" step="1" value="1">
-                    <!--OR CHANGE TO A BUTTON / SWITCH-->
-            </div>
+            <!--temperature slider-->
+            <!--maybe do slide and change color?-->
+            <input type="range" id="action-slider" name="SET TEMPERATURE" min="1" max="4" step="1" value="1">
+            <br>
+            <button id="action-button" type="button">EXPLODE</button>
+            <!--BASED ON MASS SET-->
         </div>
     </div>
 
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
+    
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
@@ -64,10 +59,54 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png" style="width: 70px">
             </a>
         </div>
     </footer>
+
+    
+    <script>
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 1000)
+            })
+
+        
+        const slider = document.getElementById("action-slider")
+        const image_box = document.getElementById("image-box")
+        slider.addEventListener('input', function(event) 
+            {
+                var val_num = event.target.value
+
+                if (val_num == 1) {
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_orange_supergiant.png">`
+                }
+
+                else if (val_num == 2) {
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/yellow_white_supergiant.png">`
+                }
+
+                else if (val_num == 3) {
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/white_blue_supergiant.png"">`
+                }
+
+                else {
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/blue_supergiant.png">`
+                }
+            }
+        )
+
+        
+        document.getElementById("action-button").onclick = function () {
+            setTimeout(() => {
+                console.log("new tab")
+                window.location.href ='supernova.html'
+            })
+        }
+    </script>
 
 
 </body>

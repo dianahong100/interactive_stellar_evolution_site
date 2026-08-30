@@ -14,74 +14,65 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="js/index.js" defer></script>
-
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Out in the far ends of space, thousands, even millions, of light years away from where 
+            you exist right now lies a stellar nursery.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">This nursery is known as a nebula.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">It is made of cosmic dust and gas, the materials that form stars.</h3>
+    </div>
+
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 1-->
-        <!--nebulae-->
-        <div id="step-1" class="d-flex">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--Birth of a star-->
-                <!--Out in the far ends of space, thousands, even millions, of light years away from where 
-                        you stand right now lies a stellar nursery.-->
-                <!--This nursery is known as a nebula.-->
-                <!--It is made of cosmic dust and gas, the materials that form stars.-->
-            </div>
-        
-            <!--nebula -->
-            <div id="nebula">
-                <!--image-->
-                <img class="img-fluid" id='nebula-image' src="images/stars/cosmic_nebula.png">
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/nebula.png">
+            <!--caption-->
+            <p>As time passes, the nebula cools and the outward force of pressure slowly whittles down, giving in to gravitational collapse. As it compresses,
+                    a new object is formed.
+            </p>
 
-                <!--caption-->
-                <p>Nebulae are made of cosmic dust and gas, the same material that stars are made out of. As time passes, the nebula
-                        cools and the outward force of pressure slowly whittles down. This causes it to give in to gravitational collapse. As it compresses,
-                        a new object is formed.
-                </p>
-
-                <!--compress button-->
-                <button id="compress-nebula-button" type="button">COMPRESS NEBULA</button>
-            </div>
-        </div>
-
-        
-        <!--step 5-->
-        <!--stellar death-->
-        <!--planetary nebulae and WD-->
-        <!--supernovae, NS or BH-->
-        <div id="step-5">
-
-        </div>
-
-        <!--step 6-->
-        <!--full circle (material forms nebulae)-->
-        <div id="step-6">
-
+            <!--compress button-->
+            <button id="action-button" type="button">COMPRESS NEBULA</button>
         </div>
     </div>
 
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
         <!--footer-->
-    <footer class="p-5 footer text-light text-center">
+    <footer class="p-4 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
-            <h1 class="lead m-0 text-center" style="font-family: sans-serif, Helvetica;">
+            <p class="lead m-0 text-center">
                 New Jersey State Museum
-            </h1>
+            </p>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
+
+    <script>
+         // ---------------------index-----------------------------
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 1000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            setTimeout(() => {
+                console.log("new tab")
+                window.location.href ='protostar.html'
+            })
+        }
+    </script>
 
 
 </body>

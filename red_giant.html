@@ -14,48 +14,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">The star is now nearing the end of the main sequence stage.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">Since it was only a low to medium mass star, it became a red giant.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">In a couple billion years, our Sun will also turn into a red giant.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 4-->
         <!--red giant-->
-        <div id="step-4">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--The star is now nearing the end of the main sequence stage.-->
-                <!--Since it was only a low to medium mass star, it became a red giant.-->
-                <!--In a couple billion years, our Sun will also turn into a red giant.-->
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <div id="image-box">
+                <img class="img-fluid" id='info-img' src="images/stars/red_giant_1.png">
             </div>
+            
+            <!--caption-->
+            <p>Even at this stage, the red giant is still burning its fuel! That core is still compressing, and the shell is still expanding. This time, though,
+                it sheds these outer layers, and once they are all gone, what remains is the dense core.
+            </p>
 
-            <!--red giant -->
-            <div id="red-giant">
-                <!--image-->
-
-                <!--caption-->
-                <p>Even at this stage, the red giant is still burning its fuel! That core is still compressing, and the shell is still expanding. This time, though,
-                    it sheds these outer layers, and once they are all gone, what remains is the dense core.
-                </p>
-
-                <!--temperature slider-->
-                <!--if slide to 10, move to main sequence page-->
-                <button type="button" id="blow-away" name="BLOW" min="1" max="10" step="1" value="1">
-                    <!--OR CHANGE TO A BUTTON / SWITCH-->
-            </div>
-
+            <!--temperature slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <input type="range" id="action-slider" name="BLOW AWAY GAS" min="1" max="5" step="1" value="1">
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
         </div>
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
+    </div>
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
@@ -63,11 +55,56 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
 
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 1000)
+            })
+
+        
+        const slider = document.getElementById("action-slider")
+        const image_box = document.getElementById("image-box")
+//<img class="img-fluid" id='info-img' src="images/stars/red_giant_1.png">
+        slider.addEventListener('input', function(event) 
+            {
+                var val_num = event.target.value
+
+                if (val_num == 1) {
+                    event.preventDefault()
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_giant_1.png">`
+                }
+
+                else if (val_num == 2) {
+                    event.preventDefault()
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_giant_2.png">`
+                }
+
+                else if (val_num == 3) {
+                    event.preventDefault()
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_giant_3.png">`
+                }
+
+                else if (val_num == 4) {
+                    event.preventDefault()
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_giant_4.png">`
+                }
+
+                else {
+                    event.preventDefault()
+                    image_box.innerHTML = `<img class="img-fluid" id='info-img' src="images/stars/red_giant_5.png">`
+                    window.location.href = "white_dwarf.html"
+                }
+            }
+        )
+    </script>
 
 </body>
 </html>

@@ -14,47 +14,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Neutron stars are the most dense object known in the universe, with the sole exception of black holes, of course.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">That is because neutron stars form from lower mass remnant cores.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">However, thanks to their great density, they have strong gravitational and magnetic fields.</h3>
+    </div>
     <!--spacing-->
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 4-->
-        <!--red giant-->
-        <div id="step-4">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--Neutron stars are the most dense object known in the universe, with the sole exception of black holes, of course.-->
-                <!--That is because neutron stars form from lower mass remnant cores.-->
-                <!--However, thanks to their great density, they have strong gravitational and magnetic fields.-->
-            </div>
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/pulsar.png">
 
-            <!--red giant -->
-            <div id="red-giant">
-                <!--image-->
+            <!--caption-->
+            <p>A special type of neutron star is a pulsar. This is a neutron star that spins incredibly fast while emitting bright beams of light from their poles. Its spin,
+                magnets, and winds power a pulsar wind nebula.
+                    
+            </p>
 
-                <!--caption-->
-                <p>A special type of neutron star is a pulsar. This is a neutron star that spins incredibly fast while emitting bright beams of light from their poles. Its spin,
-                    magnets, and winds power a pulsar wind nebula.
-                        
-                </p>
-
-                <!--temperature slider-->
-                <!--return home btn-->
-                <!--if slide to 10, move to main sequence page-->
-                <button type="button" id="blow-away" name="BLOW" min="1" max="10" step="1" value="1">
-                    <!--OR CHANGE TO A BUTTON / SWITCH-->
-            </div>
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
+            <!--temperature slider-->
+            <!--return home btn-->
+            <!--if slide to 10, move to main sequence page-->
+            <button type="button" id="action-button">The End</button>
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
+        </div>
+    </div>
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
@@ -62,11 +55,24 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
 
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 10000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            window.location.href ='end.html'
+        }
+    </script>
 
 </body>
 </html>

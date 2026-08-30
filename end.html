@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Evolution</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+            rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!--intro-->
+    <div class="splash">
+        <h1 class="fade-in">Even as the star's journey ends, the material it left behind will go on and be consumed by some other growing object, progressing this cycle of existence.</h1>
+        <!--animation-->
+    </div>
+
+    <!--interactive stellar evolution-->
+    <div class="container d-flex" id="stellar-evolution-path">
+        <div id="info-box" class="mx-auto">
+            <!--temperature slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <button id="action-button" type="button">RESTART</button>
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
+        </div>
+    </div>
+        <!--footer-->
+    <footer class="p-5 footer text-light text-center">
+        <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
+            <h1 class="lead m-0 text-center" style="font-family: sans-serif, Helvetica;">
+                New Jersey State Museum
+            </h1>
+            <a href="#" class="mt-2">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 7000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            window.location.href ='index.html'
+        }
+    </script>
+
+</body>
+</html>

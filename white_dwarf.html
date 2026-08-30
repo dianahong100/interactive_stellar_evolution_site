@@ -14,46 +14,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">This star's life is over now that it is a white dwarf, but that is not always the case.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">Those in a 
+                    binary system, or a system in which the white dwarf and a companion orbit a common center, can go on to produce
+                    great astronomical phenomenae. </h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <div id="step-4">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--This story may be over for now, but those layers that it shed are drifting out
-                in the vast interstellar medium.-->
-                <!--This material will slowly accumulate, and one day, someday, a nebula will form, and the cycle repeats.-->
-            </div>
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/white_dwarf.png">
+            <!--caption-->
+            <p>The most well known white dwarf phenomeon is a special type of supernova. The type 1a supernova
+                occurs once the white dwarf exceeds 1.4 solar masses, the Chandrasekhar limit. At this point, the density is so great that the electrons making up the white dwarf
+                are compressed so tightly that they move close to the speed of light.</p>
 
-            <!--white dwarf -->
-            <div id="white-dwarf">
-                <!--image-->
+            <p>White dwarfs maintain hydrostatic equilibrium through pressure that comes from the movement of its electrons. However, since they cannot move faster than the
+                speed of light, pressure is capped here, and as the white dwarf continues mass accretion, gravity overcomes pressure, resulting in a supernovav that obliterates the
+                white dwarf.</p>
 
-                <!--caption-->
-                <p>This star's life is over now that it is a white dwarf, but that is not the case for some white dwarfs. Those in a 
-                    binary system, or a system in which the white dwarf and a companion orbit a common center, can go on to produce
-                    great astronomical phenomenae. 
-                </p>
+            <p>Type 1a supernovae are standard candles; their known luminosities are used to calculate distances across the cosmos. Hence, they are used in calculating the
+                Hubble constant, or the rate of the Universe’s expansion.
+            </p>
 
-                <!--temperature slider-->
-                <!--if slide to 10, move to main sequence page-->
-                <button type="button" id="blow-away" name="BLOW" min="1" max="10" step="1" value="1">
-                    <!--OR CHANGE TO A BUTTON / SWITCH-->
-            </div>
+            <!--temperature slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <button id="action-button" type="button">The End</button>
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
         </div>
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
-
+    </div>
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
         <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
@@ -61,11 +59,25 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
 
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 10000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            window.location.href ='end.html'
+        }
+    </script>
 
 </body>
 </html>

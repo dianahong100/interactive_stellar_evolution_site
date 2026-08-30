@@ -14,53 +14,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="js/main_sequence.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Congratulations! You have a newborn baby star!</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">The protostar has now entered the main sequence stage.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">Most stars in the universe are main sequence stars.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">To prevent itself from collapsing under its gravitational
+                pull, stars use nuclear fusion reactions to maintain hydrostatic equilibrium.</h3>
+            <h1 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">Fusion reactions release enormous amounts of energy, creating a counterbalancing pressure that pushes back 
+            against gravity.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
-        <!--step 3-->
         <!--main sequence-->
-        <div id="step-3" class="d-flex">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--Congratulations! You have a newborn baby star!-->
-                <!--The protostar has now entered the main sequence stage, which really can be thought of as its lifetime.-->
-                <!--Most stars in the universe are main sequence stars.-->
-                <!--Stars remain in this stage through hydrostatic equilibrium. To prevent itself from collapsing under its gravitational
-                    pull, stars use nuclear fusion reactions, which releases enormous amounts of energy, to create a counterbalancing
-                    pressure that pushes back against gravity.-->
-            </div>
-        
-            <!--main sequence -->
-            <div id="main-sequence">
-                <!--image-->
-                <img class="img-fluid" src="images/stars/cosmic_nebula.png">
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/main_sequence.png">
 
-                <!--caption-->
-                <p>We know that main sequence stars use nuclear fusion to create pressure. Nuclear fusion is the process in which an atom's
-                        nucleus collides with another with enough force that the nuclei merge. This means the number of protons, which define the atom's elemental
-                        identity, changes. For most of a star's life, this is hydrogen fusing into helium. However, since there is a finite amount of hydrogen, the star core
-                        is now mostly helium, and it begins to contract on itself, creating heat, which allows for the surrounding layer to undergo fusion. This shell fusion releases a much
-                        larger amount of energy, greatly overpowering the gravitational force, causing the star to expand.
-                </p>
+            <!--caption-->
+            <p>Main sequence stars use nuclear fusion to create pressure. Nuclear fusion is the exothermic process in which an atom's
+                    nucleus collides with another with enough force that the nuclei merge. This means the number of protons, which define the atom's elemental
+                    identity, changes. For most of a star's life, this is hydrogen fusing into helium. However, since there is a finite amount of hydrogen, the star core
+                    eventually becomes mostly helium, and it begins to contract on itself, creating heat, which allows for the surrounding layer to undergo fusion. This shell fusion releases a much
+                    larger amount of energy, greatly overpowering the gravitational force, causing the star to expand.
+            </p>
 
-                <!--random mass generator button-->
-                <button type="button" id="mass-generator-btn">CLICK ME</button>
-                <p id="STAR MASS: "></p>
-            </div>
+            <!--random mass generator button-->
+            <button type="button" id="action-button">EXPAND</button>
         </div>
-
-   
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+    </div>
 
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
@@ -69,11 +61,54 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
+    
+    <script>
+        const splash = document.querySelector('.splash')
 
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 3000)
+            })
+
+        document.getElementById("action-button").onclick = function () {
+            console.log("clidked")
+            let size = randMass()
+
+            if (size == "small") {
+                console.log("new tab small")
+                window.location.href ='red_giant.html'
+            }
+            else{
+                console.log("new tab big")
+                window.location.href ='supergiant.html'
+            }
+        }
+
+
+        function randMass() {
+            let mass = Math.random()
+
+            // ~95% stars below 8 solar mass (not big)
+            // adjusted to only 80%
+            if (mass < 0.70) {
+                console.log("small")
+                return "small"
+            }
+            else {
+                console.log("large")
+                return "large"
+            }
+        }
+
+        
+        
+
+    </script>
 
 </body>
 </html>

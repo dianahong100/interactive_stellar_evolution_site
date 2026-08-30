@@ -14,45 +14,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <script type="module" src="index.js" defer></script>
-
     <!-- Update custom style sheet link with:  {{url_for('static', filename='pathToFile')}}-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!--spacing-->
+    <!--intro-->
+    <div class="splash">
+        <h3 class="fade-in">Shining brighter than its own galaxy is a supernova explosion.</h3>
+            <h3 class="fade-in" style="color: black;">s </h3>
+        <h3 class="fade-in">The supergiant's core has collapsed in on
+                itself, and with temperatures rising to over 10 billion Kelvin, gamma rays shatter the nuclei of atoms, producing neutrons.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">All this occurs faster than the blink of an eye.</h3>
+            <h3 class="fade-in"  style="color: black;"> s</h3>
+        <h3 class="fade-in">These new neutrons resist further compression, and this sudden stop in compression
+                causes an explosive outward shockwave.</h3>
+    </div>
 
     <!--interactive stellar evolution-->
     <div class="container d-flex" id="stellar-evolution-path">
         <!--step 4-->
         <!--red giant-->
-        <div id="step-4">
-            <!--intro-->
-            <div id="introduction-sequence">
-                <!--Shining brighter than its own galaxy is a supernova explosion. The supergiant's core has collapsed in on
-                itself, and with temperatures rising to over 10 billion Kelvin, gamma rays shatter the nuclei of atoms, producing neutrons. All this occurs
-                faster than the blink of an eye. These new neutrons resist further compression, and this sudden stop in compression
-                causes an explosive outward shockwave.-->
-                <!---->
-            </div>
+        <div id="info-box" class="mx-auto">
+            <!--image-->
+            <img class="img-fluid" id='info-img' src="images/stars/supernova.png">
 
-            <!--red giant -->
-            <div id="red-giant">
-                <!--image-->
+            <!--caption-->
+            <p>Despite all this, the core remains and continues to evolve. The path it takes depends on its mass.
+            </p>
 
-                <!--caption-->
-                <p>Despite all this, the core remains and continues to evolve. The path it takes depends on its mass.
-                </p>
-
-                <!--temperature slider-->
-                <!--if slide to 10, move to main sequence page-->
-                <button type="button" id="blow-away" name="BLOW" min="1" max="10" step="1" value="1">
-                    <!--OR CHANGE TO A BUTTON / SWITCH-->
-            </div>
-
-    <!--spacing-->
-    <br><br><br><br><br><br><br>
+            <!--random mass slider-->
+            <!--if slide to 10, move to main sequence page-->
+            <button id="action-button" type="button">CLEAR DUST</button>
+                <!--OR CHANGE TO A BUTTON / SWITCH-->
+        </div>
+    </div>
 
         <!--footer-->
     <footer class="p-5 footer text-light text-center">
@@ -61,11 +58,50 @@
                 New Jersey State Museum
             </h1>
             <a href="#" class="mt-2">
-                <img src="images/logos/njsm_logo.png">
+                <img id="logo-img" src="images/logos/njsm_logo.png">
             </a>
         </div>
     </footer>
 
+    <script>
+        // ---------------------protostar-----------------------------
+        const splash = document.querySelector('.splash')
 
+        document.addEventListener('DOMContentLoaded', (e) => {
+            setTimeout(()=>{
+                    splash.classList.add('display-none')
+                }, 10000)
+            })
+
+        
+        document.getElementById("action-button").onclick = function () {
+            console.log("clidked")
+            let size = randMass()
+
+            if (size == "small") {
+                console.log("new tab small")
+                window.location.href ='neutron_star.html'
+            }
+            else{
+                console.log("new tab big")
+                window.location.href ='black_hole.html'
+            }
+        }
+
+
+        function randMass() {
+            let mass = Math.random()
+
+            // ~80% become NS
+            if (mass < 0.80) {
+                console.log("small")
+                return "small"
+            }
+            else {
+                console.log("large")
+                return "large"
+            }
+        }
+    </script>
 </body>
 </html>
