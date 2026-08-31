@@ -1,11 +1,6 @@
-/*#nebula {
-  position: relative;
-}*/
-
-#nebula-image {
-  width: 70%;
-  /*height: 100%;*/
-  /*position: absolute;*/
+::selection {
+  background-color: #a1bdc9;
+  color: #233e52;
 }
 
 .splash{
