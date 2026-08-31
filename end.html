@@ -18,42 +18,24 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body style="background: black;">
     <!--intro-->
-    <div class="splash">
+    <div class="splash-end">
         <h1 class="fade-in">Even as the star's journey ends, the material it left behind will go on and be consumed by some other growing object, progressing this cycle of existence.</h1>
         <!--animation-->
     </div>
 
-    <!--interactive stellar evolution-->
-    <div class="container d-flex" id="stellar-evolution-path">
-        <div id="info-box" class="mx-auto">
-            <!--temperature slider-->
-            <!--if slide to 10, move to main sequence page-->
-            <button id="action-button" type="button">RESTART</button>
+    <button id="action-button" type="button" style="align-self: center; justify-self: center; margin-top: 50%;">RESTART</button>
                 <!--OR CHANGE TO A BUTTON / SWITCH-->
-        </div>
-    </div>
-        <!--footer-->
-    <footer class="p-4 footer text-light text-center">
-        <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
-            <p class="lead m-0 text-center" style="font-size: 15px;">
-                New Jersey State Museum
-            </p>
-            <a href="#" class="mt-2">
-                <img id="logo-img" src="images/logos/njsm_logo.png">
-            </a>
-        </div>
-    </footer>
 
     <script>
         // ---------------------protostar-----------------------------
-        const splash = document.querySelector('.splash')
+        const splash = document.querySelector('.splash-end')
 
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
                     splash.classList.add('display-none')
-                }, 7000)
+                }, 6000)
             })
 
         document.getElementById("action-button").onclick = function () {

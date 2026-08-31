@@ -14,9 +14,9 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: black;
   z-index: 200;
   color: white;
+  background: black;
   text-align: center;
   line-height: 90vh;
   font-family: Geneva, Tahoma, sans-serif;
@@ -34,9 +34,9 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: black;
   z-index: -10;
   color: white;
+  background: black;
   text-align: center;
   line-height: 90vh;
   transition: all 0.5s;
@@ -176,4 +176,54 @@ footer {
   border-radius: 20px;
   padding: 2px 20px;
   margin: 30px auto 0px;
+}
+
+
+.splash-end{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  color: white;
+  background: url('../images/stars/animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center center;
+  margin: 0;
+  background-attachment: fixed;
+
+
+  text-align: center;
+  line-height: 90vh;
+  font-family: Geneva, Tahoma, sans-serif;
+  justify-content: center;
+  align-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
+.splash-end.display-none{
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+  color: white;
+  background-color: black;
+  background: url('images/stars/animation.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  background-attachment: fixed;
+
+  text-align: center;
+  line-height: 90vh;
+  transition: all 0.5s;
 }
