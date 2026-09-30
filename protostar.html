@@ -62,6 +62,9 @@
     <script>
         // ---------------------protostar----------------------------//
         const splash = document.querySelector('.splash')
+        const urlParams = new URLSearchParams(window.location.search)
+        const choiceValue = urlParams.get('pathType')
+        let urlObj = new URL('http://127.0.0.1:5500/main_sequence.html')
 
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
@@ -78,8 +81,11 @@
                 temp_display.innerHTML = ``
                 temp_display.innerHTML = `${temperature} million Kelvin`
                 console.log(temperature)
+
+                urlObj.searchParams.set('pathType', choiceValue)
+
                 if (temperature == 10) {
-                    window.location.href = "main_sequence.html"
+                    window.location.href = urlObj
                 }
             }
         )

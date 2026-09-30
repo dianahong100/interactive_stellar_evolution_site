@@ -37,7 +37,19 @@
             <!--caption-->
             <p>As time passes, the nebula cools and the outward force of pressure slowly whittles down, giving in to gravitational collapse. As it compresses,
                     a new object is formed.
-            </p>
+            </p><br>
+
+            <!--choose your own path or allow random-->
+            <form class="path-type" style="justify-self: center;">
+                <p>Please select your path type:</p>
+
+                <input type="radio" id="default-path" name="path" value="default" checked>
+                <label for="default">Default</label><br>
+
+                <input type="radio" id="choice-path" name="path" value="choice">
+                <label for="choice">Choose Your Own Path</label>
+            </form>
+
 
             <!--compress button-->
             <button id="action-button" type="button">COMPRESS NEBULA</button>
@@ -60,16 +72,23 @@
          // ---------------------index-----------------------------
         const splash = document.querySelector('.splash')
 
+        let urlObj = new URL('http://127.0.0.1:5500/protostar.html')
+
+        
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
                     splash.classList.add('display-none')
-                }, 10000)
+                }, 1000)
             })
 
         document.getElementById("action-button").onclick = function () {
+            let pathChoice = document.querySelector('input[name="path"]:checked').value
+            console.log(pathChoice)
+            urlObj.searchParams.set('pathType', pathChoice)
+
             setTimeout(() => {
                 console.log("new tab")
-                window.location.href ='protostar.html'
+                window.location.href = urlObj
             })
         }
     </script>

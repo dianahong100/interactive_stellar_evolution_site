@@ -44,6 +44,12 @@
             <p>Despite all this, the core remains and continues to evolve. The path it takes depends on its mass.
             </p>
 
+            <strong id="mass-display-box">
+                <p id="mass-display" style="font-family: fantasy; letter-spacing: 3px; font-size: 100%; justify-self: center;">Adjust mass</p>
+            </strong>
+            <input type="range" id="action-slider" name="MASS" min="1.1" max="3" step="0.1" value="1.1">
+            
+
             <!--random mass slider-->
             <!--if slide to 10, move to main sequence page-->
             <button id="action-button" type="button">CLEAR DUST</button>
@@ -66,28 +72,16 @@
     <script>
         // ---------------------protostar-----------------------------
         const splash = document.querySelector('.splash')
+        const urlParams = new URLSearchParams(window.location.search)
+        const choiceValue = urlParams.get('pathType')
+        let urlObj = new URL('http://127.0.0.1:5500/neutron_star.html')
+        urlObj.searchParams.set('pathType', choiceValue)
 
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
                     splash.classList.add('display-none')
-                }, 20000)
+                }, 1000) //20000
             })
-
-        
-        document.getElementById("action-button").onclick = function () {
-            console.log("clidked")
-            let size = randMass()
-
-            if (size == "small") {
-                console.log("new tab small")
-                window.location.href ='neutron_star.html'
-            }
-            else{
-                console.log("new tab big")
-                window.location.href ='black_hole.html'
-            }
-        }
-
 
         function randMass() {
             let mass = Math.random()
@@ -100,6 +94,54 @@
             else {
                 console.log("large")
                 return "large"
+            }
+        }
+
+        if (choiceValue == 'choice') {
+            const slider = document.getElementById("action-slider")
+            const mass_display = document.getElementById("mass-display")
+
+            slider.addEventListener('input', function(event) 
+                {
+                    var mass = event.target.value
+                    mass_display.innerHTML = ``
+                    mass_display.innerHTML = `${mass} M☉`
+
+                    urlObj.searchParams.set('pathType', choiceValue)
+
+                    console.log(mass)
+
+                    if ((mass >= 1.1) && (mass < 2.2)) {
+                        urlObj = new URL('http://127.0.0.1:5500/neutron_star.html')
+                        urlObj.searchParams.set('pathType', choiceValue)
+                    }
+
+                    else {
+                        urlObj = new URL('http://127.0.0.1:5500/black_hole.html')
+                        urlObj.searchParams.set('pathType', choiceValue)
+                    }
+                })
+            
+                document.getElementById("action-button").onclick = function () {
+                    window.location.href = urlObj
+                }
+        }
+        
+        else {
+            document.getElementById('action-slider').style.display = 'none'
+            document.getElementById('mass-display').style.display = 'none'
+            document.getElementById("action-button").onclick = function () {
+                console.log("clidked")
+                let size = randMass()
+
+                if (size == "small") {
+                    console.log("new tab small")
+                    window.location.href ='neutron_star.html'
+                }
+                else{
+                    console.log("new tab big")
+                    window.location.href ='black_hole.html'
+                }
             }
         }
     </script>

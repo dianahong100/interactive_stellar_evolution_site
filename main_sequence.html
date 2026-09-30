@@ -49,6 +49,10 @@
                     larger amount of energy, greatly overpowering the gravitational force, causing the star to expand.
             </p>
 
+            <strong id="mass-display-box">
+                <p id="mass-display" style="font-family: fantasy; letter-spacing: 3px; font-size: 100%; justify-self: center;">Adjust mass</p>
+            </strong>
+            <input type="range" id="action-slider" name="MASS" min="1" max="10" step="1" value="1">
             <!--random mass generator button-->
             <button type="button" id="action-button">EXPAND</button>
         </div>
@@ -68,27 +72,17 @@
     
     <script>
         const splash = document.querySelector('.splash')
+        const urlParams = new URLSearchParams(window.location.search)
+        const choiceValue = urlParams.get('pathType')
+        let urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+        urlObj.searchParams.set('pathType', choiceValue)
+
 
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
                     splash.classList.add('display-none')
                 }, 20000)
             })
-
-        document.getElementById("action-button").onclick = function () {
-            console.log("clidked")
-            let size = randMass()
-
-            if (size == "small") {
-                console.log("new tab small")
-                window.location.href ='red_giant.html'
-            }
-            else{
-                console.log("new tab big")
-                window.location.href ='supergiant.html'
-            }
-        }
-
 
         function randMass() {
             let mass = Math.random()
@@ -105,8 +99,58 @@
             }
         }
 
-        
-        
+
+        if (choiceValue == 'choice') {
+           const slider = document.getElementById("action-slider")
+            const mass_display = document.getElementById("mass-display")
+
+
+            slider.addEventListener('input', function(event) 
+                {
+                    var mass = event.target.value
+                    mass_display.innerHTML = ``
+                    mass_display.innerHTML = `${mass} M☉`
+
+                    urlObj.searchParams.set('pathType', choiceValue)
+
+                    if (mass >= 8) {
+                        urlObj = new URL('http://127.0.0.1:5500/supergiant.html')
+                        urlObj.searchParams.set('pathType', choiceValue)
+                    }
+
+                    else {
+                        urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+                        urlObj.searchParams.set('pathType', choiceValue)
+                    }
+                })
+            
+                document.getElementById("action-button").onclick = function () {
+                    window.location.href = urlObj
+                }
+
+        }
+
+        else {
+            document.getElementById('action-slider').style.display = 'none'
+            document.getElementById('mass-display').style.display = 'none'
+            document.getElementById("action-button").onclick = function () {
+                console.log("clidked")
+                let size = randMass()
+
+                if (size == "small") {
+                    console.log("new tab small")
+                    urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+                    urlObj.searchParams.set('pathType', choiceValue)
+                    window.location.href = urlObj
+                }
+                else{
+                    console.log("new tab big")
+                    urlObj = new URL('http://127.0.0.1:5500/supergiant.html')
+                    urlObj.searchParams.set('pathType', choiceValue)
+                    window.location.href = urlObj
+                }
+            }
+        }
 
     </script>
 
