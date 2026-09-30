@@ -74,8 +74,6 @@
         const splash = document.querySelector('.splash')
         const urlParams = new URLSearchParams(window.location.search)
         const choiceValue = urlParams.get('pathType')
-        let urlObj = new URL('http://127.0.0.1:5500/neutron_star.html')
-        urlObj.searchParams.set('pathType', choiceValue)
 
         document.addEventListener('DOMContentLoaded', (e) => {
             setTimeout(()=>{
@@ -112,19 +110,13 @@
                     console.log(mass)
 
                     if ((mass >= 1.1) && (mass < 2.2)) {
-                        urlObj = new URL('http://127.0.0.1:5500/neutron_star.html')
-                        urlObj.searchParams.set('pathType', choiceValue)
+                        window.location.href = 'neutron_star.html'
                     }
 
                     else {
-                        urlObj = new URL('http://127.0.0.1:5500/black_hole.html')
-                        urlObj.searchParams.set('pathType', choiceValue)
+                        window.location.href = 'black_hole.html'
                     }
                 })
-            
-                document.getElementById("action-button").onclick = function () {
-                    window.location.href = urlObj
-                }
         }
         
         else {

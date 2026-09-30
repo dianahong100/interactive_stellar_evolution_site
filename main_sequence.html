@@ -74,7 +74,7 @@
         const splash = document.querySelector('.splash')
         const urlParams = new URLSearchParams(window.location.search)
         const choiceValue = urlParams.get('pathType')
-        let urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+        let urlObj = new URL('https://dianahong100.github.io/interactive_stellar_evolution_site/red_giant.html')
         urlObj.searchParams.set('pathType', choiceValue)
 
 
@@ -114,12 +114,12 @@
                     urlObj.searchParams.set('pathType', choiceValue)
 
                     if (mass >= 8) {
-                        urlObj = new URL('http://127.0.0.1:5500/supergiant.html')
+                        urlObj = new URL('https://dianahong100.github.io/interactive_stellar_evolution_site/supergiant.html')
                         urlObj.searchParams.set('pathType', choiceValue)
                     }
 
                     else {
-                        urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+                        urlObj = new URL('https://dianahong100.github.io/interactive_stellar_evolution_site/red_giant.html')
                         urlObj.searchParams.set('pathType', choiceValue)
                     }
                 })
@@ -139,13 +139,13 @@
 
                 if (size == "small") {
                     console.log("new tab small")
-                    urlObj = new URL('http://127.0.0.1:5500/red_giant.html')
+                    urlObj = new URL('https://dianahong100.github.io/interactive_stellar_evolution_site/red_giant.html')
                     urlObj.searchParams.set('pathType', choiceValue)
                     window.location.href = urlObj
                 }
                 else{
                     console.log("new tab big")
-                    urlObj = new URL('http://127.0.0.1:5500/supergiant.html')
+                    urlObj = new URL('https://dianahong100.github.io/interactive_stellar_evolution_site/supergiant.html')
                     urlObj.searchParams.set('pathType', choiceValue)
                     window.location.href = urlObj
                 }
